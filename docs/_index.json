@@ -2,11 +2,9 @@
   "categories": [
     {
       "id": "getting-started",
-      "title": "Getting Started",
+      "title": "Getting started",
       "order": 1,
-      "items": [
-        { "slug": "getting-started", "title": "Quickstart", "order": 1 }
-      ]
+      "slugs": ["getting-started"]
     }
   ]
 }

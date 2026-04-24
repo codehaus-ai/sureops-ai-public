@@ -3,6 +3,7 @@ title: Quickstart
 description: Get sureops running in 10 minutes.
 category: getting-started
 order: 1
+updated: 2026-04-24
 ---
 
 > Docs content forthcoming. The shape of this directory — frontmatter contract, sidebar manifest, "Edit on GitHub" deep-link — is owned by [spec #19](https://github.com/sureops/sureops-public/issues). Track that issue for the rollout.
