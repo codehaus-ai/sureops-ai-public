@@ -40,17 +40,19 @@ See the table in our [welcome thread](https://github.com/codehaus-ai/sureops-ai-
 | 👍 Top-voted features | [`is:open label:type:feature sort:reactions-+1-desc`](https://github.com/codehaus-ai/sureops-ai-public/issues?q=is%3Aopen+label%3Atype%3Afeature+sort%3Areactions-%2B1-desc) |
 | 🚨 P0/P1 untriaged | [`is:open label:triage label:priority:p0,priority:p1`](https://github.com/codehaus-ai/sureops-ai-public/issues?q=is%3Aopen+label%3Atriage+label%3Apriority%3Ap0%2Cpriority%3Ap1) |
 
-## Internal SLA targets (private beta)
+## Internal SLA targets
 
 These are commitments we hold ourselves to internally. Not promised publicly until we've sustained them through 3 cohorts.
 
+The `customer-reported` SLA below applies to issues filed by SaaS private-beta customers (where the in-app feedback widget auto-applies that label, or a maintainer applies it after triage). Issues from anyone — including self-hosted users — are still handled per their `priority:*` label, and our priority-based targets apply to every source.
+
 | Issue type | Target first response |
 |---|---|
-| `customer-reported` | **1 business day** |
+| `customer-reported` (SaaS private-beta) | **1 business day** |
 | `priority:p0` (any source) | **4 hours, 24/7 best-effort** |
-| `priority:p1` | **1 business day** |
-| `priority:p2` | **1 week** |
-| `priority:p3` | Best-effort, no firm target |
+| `priority:p1` (any source) | **1 business day** |
+| `priority:p2` (any source) | **1 week** |
+| `priority:p3` (any source) | Best-effort, no firm target |
 | Discussions Q&A | **1 business day** |
 
 "First response" = a comment from a maintainer, not necessarily a fix. Often it's "we see this, we're investigating, will update by Friday."

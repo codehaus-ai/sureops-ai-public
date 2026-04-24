@@ -23,11 +23,13 @@ Subscribe to the repository's "Security advisories" notifications to receive the
 
 ## Supported Versions
 
-sureops is in private beta. Only the latest minor release is supported with security fixes.
+The sureops Helm chart and self-hosted deployment are publicly available — you can install at any time, no waitlist required. Our hosted SaaS at `*.sureops.ai` is currently in private beta.
+
+Security fixes are applied to the latest minor release of the chart:
 
 | Version | Supported |
 |---|---|
-| `0.x.x` (current beta) | Yes — latest minor only |
+| `0.x.x` (current) | Yes — latest minor only |
 | `< 0.1.0` | No |
 
 The version range will be revised after the v1.0 GA release.
