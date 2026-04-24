@@ -5,7 +5,7 @@ Self-hosted Kubernetes deployment for sureops.
 ## Install
 
 ```bash
-helm repo add sureops https://sureops.github.io/sureops-public
+helm repo add sureops https://codehaus-ai.github.io/sureops-ai-public
 helm repo update
 helm install sureops sureops/sureops \
   --namespace sureops --create-namespace \

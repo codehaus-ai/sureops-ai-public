@@ -9,7 +9,7 @@ body:
         ### 📝 Submit a fix instead?
         Most docs issues are faster to fix than to file. Every doc page has an **"Edit this page on GitHub"** link in the header — click it, make the change, open a PR. We typically merge docs PRs within a day.
 
-        Browse the docs source at [`docs/`](https://github.com/sureops/sureops-public/tree/main/docs).
+        Browse the docs source at [`docs/`](https://github.com/codehaus-ai/sureops-ai-public/tree/main/docs).
 
   - type: input
     id: page

@@ -17,7 +17,7 @@ We acknowledge receipt within **2 business days** and aim to provide an initial 
 
 We do not maintain a public CVE log yet. Confirmed vulnerabilities and their fixes are published as advisories at:
 
-<https://github.com/sureops/sureops-public/security/advisories>
+<https://github.com/codehaus-ai/sureops-ai-public/security/advisories>
 
 Subscribe to the repository's "Security advisories" notifications to receive these.
 

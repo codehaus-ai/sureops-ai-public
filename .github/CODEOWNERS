@@ -1,23 +1,23 @@
 # CODEOWNERS — auto-request review from the right people on PR open.
 #
-# Teams referenced here will be created when the `sureops` GitHub
-# organization is set up. Until then, the file parses but no team
-# auto-requests will fire.
+# Teams referenced here must be created in the codehaus-ai GitHub
+# organization (Settings → Teams → New team). Until then, the file
+# parses but no team auto-requests will fire.
 #
 # Order matters: later rules override earlier ones for the same path.
 # The default rule must come last and match `*`.
 
 # Default — anything not matched below routes to core maintainers.
-*                       @sureops/maintainers
+*                       @codehaus-ai/maintainers
 
 # Documentation content
-docs/**                 @sureops/docs-maintainers
+docs/**                 @codehaus-ai/docs-maintainers
 
 # Helm chart and self-hosted deployment
-charts/**               @sureops/platform
+charts/**               @codehaus-ai/platform
 
 # Examples (vendor-side webhook payloads, MCP manifests)
-examples/**             @sureops/integrations
+examples/**             @codehaus-ai/integrations
 
 # GitHub config and workflows
-.github/**              @sureops/platform
+.github/**              @codehaus-ai/platform

@@ -3,7 +3,7 @@
 > AI-powered incident management. Triage, diagnose, and resolve production
 > incidents with autonomous agents that ask for approval before they act.
 
-[sureops.ai](https://sureops.ai) · [Docs](https://sureops.ai/docs) · [Changelog](https://sureops.ai/changelog) · [Discussions](https://github.com/sureops/sureops-public/discussions)
+[sureops.ai](https://sureops.ai) · [Docs](https://sureops.ai/docs) · [Changelog](https://sureops.ai/changelog) · [Discussions](https://github.com/codehaus-ai/sureops-ai-public/discussions)
 
 ---
 
@@ -18,12 +18,12 @@ that benefits from being open:
 | [`docs/`](./docs) | Public documentation (rendered at [sureops.ai/docs](https://sureops.ai/docs)) |
 | [`charts/sureops/`](./charts/sureops) | Helm chart for self-hosted Kubernetes deployment |
 | [`examples/`](./examples) | Example webhook payloads, MCP tool manifests |
-| [`CHANGELOG.md`](./CHANGELOG.md) | Auto-generated from [GitHub Releases](https://github.com/sureops/sureops-public/releases) |
+| [`CHANGELOG.md`](./CHANGELOG.md) | Auto-generated from [GitHub Releases](https://github.com/codehaus-ai/sureops-ai-public/releases) |
 
 ## Install the Helm chart
 
 ```bash
-helm repo add sureops https://sureops.github.io/sureops-public
+helm repo add sureops https://codehaus-ai.github.io/sureops-ai-public
 helm repo update
 helm install sureops sureops/sureops --namespace sureops --create-namespace
 ```
@@ -32,11 +32,11 @@ See [`charts/sureops/README.md`](./charts/sureops/README.md) for configuration.
 
 ## Contributing & feedback
 
-- 🐛 **Bug** → [File a bug](https://github.com/sureops/sureops-public/issues/new?template=bug-report.yml)
-- 💡 **Feature request** → [File a request](https://github.com/sureops/sureops-public/issues/new?template=feature-request.yml)
-- 🔌 **Integration request** → [File a request](https://github.com/sureops/sureops-public/issues/new?template=integration-request.yml)
-- 📝 **Docs issue** → [File a docs issue](https://github.com/sureops/sureops-public/issues/new?template=docs-issue.yml)
-- 💬 **Question or discussion** → [Discussions](https://github.com/sureops/sureops-public/discussions)
+- 🐛 **Bug** → [File a bug](https://github.com/codehaus-ai/sureops-ai-public/issues/new?template=bug-report.yml)
+- 💡 **Feature request** → [File a request](https://github.com/codehaus-ai/sureops-ai-public/issues/new?template=feature-request.yml)
+- 🔌 **Integration request** → [File a request](https://github.com/codehaus-ai/sureops-ai-public/issues/new?template=integration-request.yml)
+- 📝 **Docs issue** → [File a docs issue](https://github.com/codehaus-ai/sureops-ai-public/issues/new?template=docs-issue.yml)
+- 💬 **Question or discussion** → [Discussions](https://github.com/codehaus-ai/sureops-ai-public/discussions)
 - 🛡️ **Security vulnerability** → email [security@sureops.ai](mailto:security@sureops.ai) — never file as a public issue.
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for our triage workflow and SLA targets.

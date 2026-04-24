@@ -4,10 +4,10 @@ Thanks for helping make sureops better. This guide explains how we triage issues
 
 ## Where to file what
 
-See the table in our [welcome thread](https://github.com/sureops/sureops-public/discussions/categories/announcements). TL;DR:
+See the table in our [welcome thread](https://github.com/codehaus-ai/sureops-ai-public/discussions/categories/announcements). TL;DR:
 
-- **Bug or feature request** → [open an issue](https://github.com/sureops/sureops-public/issues/new/choose) using the right template.
-- **How-to or open question** → [Discussions Q&A](https://github.com/sureops/sureops-public/discussions/categories/q-a).
+- **Bug or feature request** → [open an issue](https://github.com/codehaus-ai/sureops-ai-public/issues/new/choose) using the right template.
+- **How-to or open question** → [Discussions Q&A](https://github.com/codehaus-ai/sureops-ai-public/discussions/categories/q-a).
 - **Security vulnerability** → email `security@sureops.ai`. Never file publicly.
 
 ## Filing a great issue
@@ -21,7 +21,7 @@ See the table in our [welcome thread](https://github.com/sureops/sureops-public/
 ## How we triage
 
 1. **Daily triage** (every weekday morning): we filter `is:open label:triage` and process every new issue.
-2. **Triage actions**: apply `cmp:*` (component), apply `priority:*` (P0/P1/P2/P3), remove `triage`, add `status:accepted`, add to the [project board](https://github.com/orgs/sureops/projects/1).
+2. **Triage actions**: apply `cmp:*` (component), apply `priority:*` (P0/P1/P2/P3), remove `triage`, add `status:accepted`, add to the [project board](https://github.com/orgs/codehaus-ai/projects/1).
 3. **Project board** (Backlog → Up Next → In Progress → Shipped) is public. You can see what's coming.
 4. **Closing rules**:
    - Bug fixed → close with `status:shipped` + a link to the changelog entry.
@@ -34,11 +34,11 @@ See the table in our [welcome thread](https://github.com/sureops/sureops-public/
 
 | Filter | Link |
 |---|---|
-| 🆕 New (last 7 days) | [`is:open label:triage created:>7d`](https://github.com/sureops/sureops-public/issues?q=is%3Aopen+label%3Atriage+created%3A%3E7d) |
-| 🤖 Bot-flagged dupes | [`is:open commenter:sureops-bot label:triage`](https://github.com/sureops/sureops-public/issues?q=is%3Aopen+commenter%3Asureops-bot+label%3Atriage) |
-| 👀 Customer-reported | [`is:open label:customer-reported`](https://github.com/sureops/sureops-public/issues?q=is%3Aopen+label%3Acustomer-reported) |
-| 👍 Top-voted features | [`is:open label:type:feature sort:reactions-+1-desc`](https://github.com/sureops/sureops-public/issues?q=is%3Aopen+label%3Atype%3Afeature+sort%3Areactions-%2B1-desc) |
-| 🚨 P0/P1 untriaged | [`is:open label:triage label:priority:p0,priority:p1`](https://github.com/sureops/sureops-public/issues?q=is%3Aopen+label%3Atriage+label%3Apriority%3Ap0%2Cpriority%3Ap1) |
+| 🆕 New (last 7 days) | [`is:open label:triage created:>7d`](https://github.com/codehaus-ai/sureops-ai-public/issues?q=is%3Aopen+label%3Atriage+created%3A%3E7d) |
+| 🤖 Bot-flagged dupes | [`is:open commenter:sureops-bot label:triage`](https://github.com/codehaus-ai/sureops-ai-public/issues?q=is%3Aopen+commenter%3Asureops-bot+label%3Atriage) |
+| 👀 Customer-reported | [`is:open label:customer-reported`](https://github.com/codehaus-ai/sureops-ai-public/issues?q=is%3Aopen+label%3Acustomer-reported) |
+| 👍 Top-voted features | [`is:open label:type:feature sort:reactions-+1-desc`](https://github.com/codehaus-ai/sureops-ai-public/issues?q=is%3Aopen+label%3Atype%3Afeature+sort%3Areactions-%2B1-desc) |
+| 🚨 P0/P1 untriaged | [`is:open label:triage label:priority:p0,priority:p1`](https://github.com/codehaus-ai/sureops-ai-public/issues?q=is%3Aopen+label%3Atriage+label%3Apriority%3Ap0%2Cpriority%3Ap1) |
 
 ## Internal SLA targets (private beta)
 

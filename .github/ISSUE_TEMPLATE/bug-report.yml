@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         ### 🔍 Search existing bugs first
-        Please search [existing bug reports](https://github.com/sureops/sureops-public/issues?q=is%3Aissue+label%3Atype%3Abug) before filing — if you find one that matches, add a 👍 reaction or comment with new context instead of opening a duplicate.
+        Please search [existing bug reports](https://github.com/codehaus-ai/sureops-ai-public/issues?q=is%3Aissue+label%3Atype%3Abug) before filing — if you find one that matches, add a 👍 reaction or comment with new context instead of opening a duplicate.
 
         Found a security vulnerability? **Do not file a public issue.** Email [security@sureops.ai](mailto:security@sureops.ai) instead.
 

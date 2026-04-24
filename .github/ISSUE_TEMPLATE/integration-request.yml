@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         ### 🔌 Already shipped or already requested?
-        See the [current integration list on /integrations](https://sureops.ai/integrations) — and check [open integration requests](https://github.com/sureops/sureops-public/issues?q=is%3Aissue+is%3Aopen+label%3Atype%3Aintegration+sort%3Areactions-%2B1-desc) before filing. Add a 👍 to existing requests instead of duplicating.
+        See the [current integration list on /integrations](https://sureops.ai/integrations) — and check [open integration requests](https://github.com/codehaus-ai/sureops-ai-public/issues?q=is%3Aissue+is%3Aopen+label%3Atype%3Aintegration+sort%3Areactions-%2B1-desc) before filing. Add a 👍 to existing requests instead of duplicating.
 
   - type: input
     id: vendor

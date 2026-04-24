@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         ### 💡 Vote on existing requests first
-        Browse [open feature requests sorted by 👍 reactions](https://github.com/sureops/sureops-public/issues?q=is%3Aissue+is%3Aopen+label%3Atype%3Afeature+sort%3Areactions-%2B1-desc) — your reaction is a stronger signal than another duplicate. If you see your idea, add a 👍 and a comment about your specific use case.
+        Browse [open feature requests sorted by 👍 reactions](https://github.com/codehaus-ai/sureops-ai-public/issues?q=is%3Aissue+is%3Aopen+label%3Atype%3Afeature+sort%3Areactions-%2B1-desc) — your reaction is a stronger signal than another duplicate. If you see your idea, add a 👍 and a comment about your specific use case.
 
   - type: textarea
     id: problem

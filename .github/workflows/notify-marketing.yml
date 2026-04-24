@@ -22,10 +22,10 @@ jobs:
       - name: Dispatch to private marketing repo
         uses: peter-evans/repository-dispatch@v3
         with:
-          # PAT scoped to "Contents: write" on sureops/sureops-frontend-v3 only.
+          # PAT scoped to "Contents: write" on codehaus-ai/sureops-frontend-v3 only.
           # Stored as repo secret MARKETING_DISPATCH_TOKEN.
           token: ${{ secrets.MARKETING_DISPATCH_TOKEN }}
-          repository: sureops/sureops-frontend-v3
+          repository: codehaus-ai/sureops-frontend-v3
           event-type: public-repo-updated
           client-payload: |
             {
