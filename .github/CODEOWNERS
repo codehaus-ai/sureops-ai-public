@@ -1,0 +1,23 @@
+# CODEOWNERS — auto-request review from the right people on PR open.
+#
+# Teams referenced here will be created when the `sureops` GitHub
+# organization is set up. Until then, the file parses but no team
+# auto-requests will fire.
+#
+# Order matters: later rules override earlier ones for the same path.
+# The default rule must come last and match `*`.
+
+# Default — anything not matched below routes to core maintainers.
+*                       @sureops/maintainers
+
+# Documentation content
+docs/**                 @sureops/docs-maintainers
+
+# Helm chart and self-hosted deployment
+charts/**               @sureops/platform
+
+# Examples (vendor-side webhook payloads, MCP manifests)
+examples/**             @sureops/integrations
+
+# GitHub config and workflows
+.github/**              @sureops/platform

@@ -1,0 +1,33 @@
+{
+  "event": {
+    "id": "01DG8X9YQ8K6S0X4Y6V0WZJ7H2",
+    "event_type": "incident.triggered",
+    "resource_type": "incident",
+    "occurred_at": "2026-04-24T17:42:00Z",
+    "agent": {
+      "id": "PXPGF42",
+      "type": "user_reference",
+      "summary": "Jane Oncall",
+      "html_url": "https://example.pagerduty.com/users/PXPGF42"
+    },
+    "data": {
+      "id": "PGR0VU2",
+      "type": "incident",
+      "self": "https://api.pagerduty.com/incidents/PGR0VU2",
+      "html_url": "https://example.pagerduty.com/incidents/PGR0VU2",
+      "number": 1234,
+      "status": "triggered",
+      "incident_key": "high-error-rate-api-gateway",
+      "title": "High error rate on api-gateway (production)",
+      "service": {
+        "id": "PIJ90N7",
+        "summary": "api-gateway"
+      },
+      "urgency": "high",
+      "priority": {
+        "id": "P53ZZH5",
+        "summary": "P1"
+      }
+    }
+  }
+}

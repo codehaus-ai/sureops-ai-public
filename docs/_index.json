@@ -1,0 +1,12 @@
+{
+  "categories": [
+    {
+      "id": "getting-started",
+      "title": "Getting Started",
+      "order": 1,
+      "items": [
+        { "slug": "getting-started", "title": "Quickstart", "order": 1 }
+      ]
+    }
+  ]
+}

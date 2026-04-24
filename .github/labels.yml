@@ -1,0 +1,119 @@
+# Source of truth for repo labels. Synced by .github/workflows/label-sync.yml.
+# Do not hand-edit labels in the GitHub UI — change this file and let the
+# workflow reconcile.
+#
+# Color palette (consistent with the marketing design system):
+#   Type      — blue family
+#   Component — gray family
+#   Status    — purple/green family
+#   Priority  — red→yellow gradient
+#   Closing   — neutral
+#   Special   — accent
+
+# ─── Type (auto-applied by Issue Forms) ──────────────────────────────────
+- name: "type:bug"
+  color: "d73a4a"
+  description: "Something isn't working correctly."
+- name: "type:feature"
+  color: "0075ca"
+  description: "New capability or improvement."
+- name: "type:integration"
+  color: "1d76db"
+  description: "Request for a new vendor / tool integration."
+- name: "type:docs"
+  color: "0e8a16"
+  description: "Documentation issue or improvement."
+- name: "type:feedback"
+  color: "5319e7"
+  description: "Open-ended beta feedback."
+
+# ─── Component (manual, applied at triage) ───────────────────────────────
+- name: "cmp:agents"
+  color: "c5def5"
+  description: "AI agent nodes (commander, diagnosis, resolution, verification)."
+- name: "cmp:incident-flow"
+  color: "c5def5"
+  description: "Incident lifecycle, stages, control modes."
+- name: "cmp:problem-mgmt"
+  color: "c5def5"
+  description: "Problem records, RCA, recurrence, post-incident learning."
+- name: "cmp:dashboard"
+  color: "c5def5"
+  description: "Command Center, incident hub, analytics UI."
+- name: "cmp:byok"
+  color: "c5def5"
+  description: "Bring-your-own-key: model providers, encryption, key rotation."
+- name: "cmp:comms"
+  color: "c5def5"
+  description: "Slack / Teams / war-room communications."
+- name: "cmp:helm"
+  color: "c5def5"
+  description: "Helm chart and self-hosted deployment."
+- name: "cmp:auth"
+  color: "c5def5"
+  description: "Authentication, authorization, RLS, JWT, OIDC."
+- name: "cmp:api"
+  color: "c5def5"
+  description: "REST API endpoints and contracts."
+- name: "cmp:docs"
+  color: "c5def5"
+  description: "Documentation content and rendering."
+- name: "cmp:landing"
+  color: "c5def5"
+  description: "Marketing site, landing page, public surface."
+
+# ─── Status ──────────────────────────────────────────────────────────────
+- name: "triage"
+  color: "fbca04"
+  description: "Default for new issues. Removed at triage."
+- name: "status:accepted"
+  color: "1d76db"
+  description: "Triaged, accepted, in the backlog."
+- name: "status:in-progress"
+  color: "0e8a16"
+  description: "Actively being worked on."
+- name: "status:blocked"
+  color: "b60205"
+  description: "Cannot proceed — blocked on a dependency or decision."
+- name: "status:shipped"
+  color: "0e8a16"
+  description: "Done. Linked to changelog entry on close."
+
+# ─── Priority (assigned at triage) ───────────────────────────────────────
+- name: "priority:p0"
+  color: "b60205"
+  description: "Drop everything. Production-down or compliance-blocking."
+- name: "priority:p1"
+  color: "d93f0b"
+  description: "Address this week."
+- name: "priority:p2"
+  color: "fbca04"
+  description: "Address this month."
+- name: "priority:p3"
+  color: "fef2c0"
+  description: "Backlog. Nice to have."
+
+# ─── Closing reasons ─────────────────────────────────────────────────────
+- name: "won't-fix"
+  color: "cccccc"
+  description: "Decided not to address. Comment explains why."
+- name: "duplicate"
+  color: "cccccc"
+  description: "Duplicate of another issue. Comment links the original."
+- name: "not-reproducible"
+  color: "cccccc"
+  description: "Could not reproduce with information given."
+
+# ─── Special ─────────────────────────────────────────────────────────────
+- name: "customer-reported"
+  color: "ff6b9d"
+  description: "Filed by a beta customer (via in-app widget or directly). Internal SLA: 1 business day."
+- name: "good-first-issue"
+  color: "7057ff"
+  description: "Approachable for community contribution."
+- name: "pinned"
+  color: "f9d0c4"
+  description: "Exempt from the stale bot. Reserved for long-running tracking issues."
+- name: "help-wanted"
+  color: "008672"
+  description: "Maintainers welcome external contributions on this."

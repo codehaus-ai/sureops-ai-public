@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "sureops.fullname" . }}-agent-worker
+  labels:
+    {{- include "sureops.labels" . | nindent 4 }}
+    app.kubernetes.io/component: agent-worker
+spec:
+  replicas: {{ .Values.agentWorker.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "sureops.agentWorker.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "sureops.agentWorker.selectorLabels" . | nindent 8 }}
+      annotations:
+        checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+    spec:
+      {{- with .Values.global.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "sureops.serviceAccountName" . }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1001
+        runAsGroup: 1001
+        fsGroup: 1001
+      containers:
+        - name: agent-worker
+          image: {{ include "sureops.image" (dict "global" .Values.global "image" .Values.agentWorker.image) }}
+          imagePullPolicy: {{ .Values.agentWorker.image.pullPolicy }}
+          command: ["python", "-m", "app.workers.agent_runner"]
+          envFrom:
+            - configMapRef:
+                name: {{ include "sureops.fullname" . }}-config
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "sureops.fullname" . }}-secret
+                  key: db-password
+            - name: DATABASE_URL
+              value: {{ include "sureops.databaseUrl" . | quote }}
+            - name: ANTHROPIC_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "sureops.fullname" . }}-secret
+                  key: anthropic-api-key
+            - name: ENCRYPTION_MASTER_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "sureops.fullname" . }}-secret
+                  key: encryption-master-key
+            - name: LANGCHAIN_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "sureops.fullname" . }}-secret
+                  key: langchain-api-key
+                  optional: true
+          # Agent workers do not serve HTTP — use file-based heartbeat for liveness.
+          # The worker process must touch /tmp/worker-heartbeat periodically.
+          livenessProbe:
+            exec:
+              command:
+                - python
+                - -c
+                - "import os, time; assert time.time() - os.path.getmtime('/tmp/worker-heartbeat') < 120"
+            initialDelaySeconds: 30
+            periodSeconds: 60
+            timeoutSeconds: 10
+            failureThreshold: 3
+          resources:
+            {{- toYaml .Values.agentWorker.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

@@ -1,0 +1,79 @@
+name: 🔌 Integration request
+description: Request support for a new vendor / tool integration.
+title: "[Integration]: "
+labels: ["type:integration", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 🔌 Already shipped or already requested?
+        See the [current integration list on /integrations](https://sureops.ai/integrations) — and check [open integration requests](https://github.com/sureops/sureops-public/issues?q=is%3Aissue+is%3Aopen+label%3Atype%3Aintegration+sort%3Areactions-%2B1-desc) before filing. Add a 👍 to existing requests instead of duplicating.
+
+  - type: input
+    id: vendor
+    attributes:
+      label: Vendor / tool name
+      description: The name of the product you'd like sureops to integrate with.
+      placeholder: e.g., Honeycomb, Sentry, Linear, Cortex, Backstage
+    validations:
+      required: true
+
+  - type: input
+    id: vendor_url
+    attributes:
+      label: Vendor URL
+      description: Link to the vendor's homepage or API docs.
+      placeholder: https://www.honeycomb.io
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mcp_available
+    attributes:
+      label: Does this vendor expose an MCP server?
+      description: We prefer MCP (Model Context Protocol) servers when available — they integrate fastest. If you don't know, pick "Unsure".
+      options:
+        - "Yes — link in description below"
+        - "No — REST API only"
+        - "Unsure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actions
+    attributes:
+      label: What actions would you want sureops to take?
+      description: Be specific — read events, create entities, run queries, take actions, etc.
+      placeholder: |
+        - Read alerts as incident triggers
+        - Query event traces during diagnosis
+        - Create a post-incident report as a Honeycomb annotation
+    validations:
+      required: true
+
+  - type: dropdown
+    id: blocking
+    attributes:
+      label: Is this blocking your beta usage?
+      options:
+        - "Yes — we cannot move forward without this"
+        - "No — but it would significantly reduce manual work"
+        - "No — would be nice eventually"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else useful — links to vendor docs, sample API responses, your existing usage pattern.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I checked /integrations and existing requests; this isn't a duplicate.
+          required: true

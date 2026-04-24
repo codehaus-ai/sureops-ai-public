@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "sureops.fullname" . }}-config
+  labels:
+    {{- include "sureops.labels" . | nindent 4 }}
+data:
+  # Environment
+  ENVIRONMENT: {{ .Values.api.env.ENVIRONMENT | default "production" | quote }}
+
+  # Auth
+  AUTH_MODE: {{ .Values.api.env.AUTH_MODE | default "oidc" | quote }}
+  {{- if .Values.api.env.OIDC_ISSUER }}
+  OIDC_ISSUER: {{ .Values.api.env.OIDC_ISSUER | quote }}
+  {{- end }}
+  {{- if .Values.api.env.OIDC_CLIENT_ID }}
+  OIDC_CLIENT_ID: {{ .Values.api.env.OIDC_CLIENT_ID | quote }}
+  {{- end }}
+
+  # Agent configuration
+  AGENT_DEFAULT_MODEL: {{ .Values.api.env.AGENT_DEFAULT_MODEL | default "claude-sonnet-4-6" | quote }}
+  CHECKPOINTER_BACKEND: {{ .Values.api.env.CHECKPOINTER_BACKEND | default "postgres" | quote }}
+
+  # Observability
+  LANGCHAIN_TRACING_V2: {{ .Values.api.env.LANGCHAIN_TRACING_V2 | default "true" | quote }}
+  LANGCHAIN_PROJECT: {{ .Values.api.env.LANGCHAIN_PROJECT | default "sureops-production" | quote }}
+
+  # Email
+  EMAIL_PROVIDER: {{ .Values.api.env.EMAIL_PROVIDER | default "smtp" | quote }}
+  {{- if .Values.api.env.SMTP_HOST }}
+  SMTP_HOST: {{ .Values.api.env.SMTP_HOST | quote }}
+  {{- end }}
+  {{- if .Values.api.env.SMTP_PORT }}
+  SMTP_PORT: {{ .Values.api.env.SMTP_PORT | quote }}
+  {{- end }}
+
+  # CORS
+  {{- if .Values.api.env.CORS_ORIGINS }}
+  CORS_ORIGINS: {{ .Values.api.env.CORS_ORIGINS | quote }}
+  {{- end }}

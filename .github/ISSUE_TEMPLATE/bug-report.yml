@@ -1,0 +1,118 @@
+name: 🐛 Bug report
+description: Something isn't working correctly in sureops.
+title: "[Bug]: "
+labels: ["type:bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 🔍 Search existing bugs first
+        Please search [existing bug reports](https://github.com/sureops/sureops-public/issues?q=is%3Aissue+label%3Atype%3Abug) before filing — if you find one that matches, add a 👍 reaction or comment with new context instead of opening a duplicate.
+
+        Found a security vulnerability? **Do not file a public issue.** Email [security@sureops.ai](mailto:security@sureops.ai) instead.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A clear, one-paragraph description of the bug.
+      placeholder: When I do X, I expect Y, but I see Z.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps for us to hit the bug. Numbered list please.
+      placeholder: |
+        1. Sign in as a user with the `responder` role
+        2. Open incident #...
+        3. Click "Take control"
+        4. Observe the error in the console
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: Stage chat panel should open with the diagnosis agent ready.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: 500 error in the network tab; modal stays in loading state.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: Your honest assessment — we'll re-triage if needed.
+      options:
+        - "P1 — production down / total loss of function"
+        - "P2 — major degradation / blocks a core workflow"
+        - "P3 — minor issue / workaround exists"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component
+      description: Where in sureops does this happen?
+      options:
+        - agents
+        - incident-flow
+        - problem-management
+        - dashboard
+        - byok
+        - comms
+        - helm
+        - auth
+        - api
+        - docs
+        - other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: sureops version
+      description: Find this in Settings → About, or in the bottom-left of the dashboard. Auto-filled when you file via the in-app feedback widget.
+      placeholder: e.g., 0.5.2
+    validations:
+      required: false
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser / OS
+      description: Browser version and OS, if relevant.
+      placeholder: Chrome 134 on macOS 15.2
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / logs
+      description: Drag-and-drop screenshots or paste logs. Use ``` fences for code/log blocks.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues and confirmed this isn't already reported.
+          required: true
+        - label: I am not reporting a security vulnerability (those go to security@sureops.ai).
+          required: true

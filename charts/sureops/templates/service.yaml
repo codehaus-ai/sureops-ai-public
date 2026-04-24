@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "sureops.fullname" . }}-api
+  labels:
+    {{- include "sureops.labels" . | nindent 4 }}
+    app.kubernetes.io/component: api
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.api.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "sureops.api.selectorLabels" . | nindent 4 }}
+---
+{{- if .Values.frontend.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "sureops.fullname" . }}-frontend
+  labels:
+    {{- include "sureops.labels" . | nindent 4 }}
+    app.kubernetes.io/component: frontend
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.frontend.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "sureops.frontend.selectorLabels" . | nindent 4 }}
+{{- end }}

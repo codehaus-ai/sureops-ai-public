@@ -1,0 +1,55 @@
+name: 📝 Docs issue
+description: Something is wrong, missing, or confusing in the docs.
+title: "[Docs]: "
+labels: ["type:docs", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 📝 Submit a fix instead?
+        Most docs issues are faster to fix than to file. Every doc page has an **"Edit this page on GitHub"** link in the header — click it, make the change, open a PR. We typically merge docs PRs within a day.
+
+        Browse the docs source at [`docs/`](https://github.com/sureops/sureops-public/tree/main/docs).
+
+  - type: input
+    id: page
+    attributes:
+      label: Which page?
+      description: URL or slug. e.g., https://sureops.ai/docs/getting-started or `getting-started`.
+      placeholder: https://sureops.ai/docs/getting-started
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of issue
+      options:
+        - Wrong information
+        - Missing information
+        - Confusing / unclear
+        - Broken link or image
+        - Code sample doesn't work
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: What's the issue?
+      description: Quote the relevant text or describe the gap. Suggested fix welcome.
+      placeholder: |
+        The "Quickstart" section says to run `make dev` but doesn't mention you need Docker first.
+        Suggest adding a Prerequisites section above it.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: pr
+    attributes:
+      label: Would you be open to submitting a fix?
+      description: No pressure — but a PR is faster than waiting on us.
+      options:
+        - label: I'll open a PR
+          required: false

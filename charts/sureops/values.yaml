@@ -1,0 +1,146 @@
+# sureops Helm Chart — Default Values
+# Override these in your own values file for your deployment
+
+global:
+  imageRegistry: registry.sureops.ai
+  imagePullSecrets:
+    - name: sureops-registry
+
+# =============================================================================
+# API Server
+# =============================================================================
+api:
+  replicaCount: 2
+  image:
+    repository: sureops/api
+    tag: "0.1.0"
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+  port: 8000
+  env:
+    ENVIRONMENT: production
+    AUTH_MODE: oidc
+    CHECKPOINTER_BACKEND: postgres
+    LANGCHAIN_TRACING_V2: "true"
+    EMAIL_PROVIDER: smtp
+
+# =============================================================================
+# Agent Worker
+# =============================================================================
+agentWorker:
+  replicaCount: 2
+  image:
+    repository: sureops/agent-worker
+    tag: "0.1.0"
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+    limits:
+      cpu: 2000m
+      memory: 4Gi
+
+# =============================================================================
+# PostgreSQL
+# =============================================================================
+postgresql:
+  # Set to true to deploy an in-cluster PostgreSQL instance
+  # Set to false and configure external.* for an external database
+  enabled: false
+  external:
+    host: postgres.example.com
+    port: 5432
+    database: sureops
+    username: sureops
+    # Password is read from the sureops-secret (key: db-password)
+  # In-cluster PostgreSQL settings (when enabled: true)
+  image:
+    repository: postgres
+    tag: "16-alpine"
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+  persistence:
+    enabled: true
+    size: 20Gi
+    storageClass: ""
+
+# =============================================================================
+# Ingress
+# =============================================================================
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+  hosts:
+    - host: sureops.example.com
+      paths:
+        - path: /api
+          pathType: Prefix
+          service: api
+        - path: /health
+          pathType: Exact
+          service: api
+        - path: /
+          pathType: Prefix
+          service: frontend
+  tls:
+    - secretName: sureops-tls
+      hosts:
+        - sureops.example.com
+
+# =============================================================================
+# Frontend (optional, for serving the React app from K8s)
+# =============================================================================
+frontend:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: sureops/frontend
+    tag: "0.1.0"
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 256Mi
+  port: 80
+
+# =============================================================================
+# Secrets
+# =============================================================================
+secrets:
+  # Set to true if you manage the Secret resource out-of-band
+  # (e.g., External Secrets Operator, Sealed Secrets, kubectl create secret)
+  externalManaged: false
+
+# =============================================================================
+# Service Account
+# =============================================================================
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+
+# =============================================================================
+# Pod configuration
+# =============================================================================
+nodeSelector: {}
+tolerations: []
+affinity: {}

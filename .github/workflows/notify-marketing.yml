@@ -1,0 +1,49 @@
+name: Notify marketing site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - "CHANGELOG.md"
+      - "README.md"
+  release:
+    types: [published]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch to private marketing repo
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          # PAT scoped to "Contents: write" on sureops/sureops-frontend-v3 only.
+          # Stored as repo secret MARKETING_DISPATCH_TOKEN.
+          token: ${{ secrets.MARKETING_DISPATCH_TOKEN }}
+          repository: sureops/sureops-frontend-v3
+          event-type: public-repo-updated
+          client-payload: |
+            {
+              "ref": "${{ github.ref }}",
+              "sha": "${{ github.sha }}",
+              "trigger": "${{ github.event_name }}",
+              "actor": "${{ github.actor }}"
+            }
+
+      - name: Trigger Cloudflare Pages deploy hook (fallback)
+        if: ${{ env.MARKETING_DEPLOY_HOOK != '' }}
+        env:
+          MARKETING_DEPLOY_HOOK: ${{ secrets.MARKETING_DEPLOY_HOOK }}
+        run: |
+          curl -fsS -X POST "$MARKETING_DEPLOY_HOOK" \
+            -H "Content-Type: application/json" \
+            -d "{\"trigger\":\"${{ github.event_name }}\",\"sha\":\"${{ github.sha }}\"}"
+
+      - name: Summary
+        run: |
+          echo "::notice::Notified marketing site of ${{ github.event_name }} on ${{ github.ref }}"

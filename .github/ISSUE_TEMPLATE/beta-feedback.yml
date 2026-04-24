@@ -1,0 +1,55 @@
+name: 💬 Beta feedback
+description: General impressions, what's working, what's frustrating, what's missing — when you don't know how to file it as a bug or feature.
+title: "[Beta feedback]: "
+labels: ["type:feedback", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 💬 Low-friction feedback
+        This is the form for thoughts that don't fit a structured bug or feature request. We read every submission and respond within **1 business day** during the private beta.
+
+        Have a quick comment from inside the app instead? Use the **Feedback** button (bottom-right of the dashboard) — it auto-attaches diagnostic context.
+
+  - type: textarea
+    id: working
+    attributes:
+      label: What's working?
+      description: What's been delightful, surprising, or genuinely useful?
+    validations:
+      required: false
+
+  - type: textarea
+    id: frustrating
+    attributes:
+      label: What's frustrating?
+      description: What slowed you down, confused you, or made you want to throw your laptop?
+    validations:
+      required: false
+
+  - type: textarea
+    id: missing
+    attributes:
+      label: What's missing?
+      description: What did you expect to find that wasn't there?
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context (optional)
+      description: Anything about your team / stack / use case that helps us interpret the above?
+      placeholder: |
+        We're a 6-person SRE team running ~30 prod services on EKS, paged by Datadog,
+        currently using PagerDuty + Slack huddles for response.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I'm OK with this feedback being a public issue. (For private feedback, email hello@sureops.ai instead.)
+          required: true

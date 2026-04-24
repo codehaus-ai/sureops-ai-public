@@ -1,0 +1,18 @@
+{
+  "id": "5390705372325636011",
+  "last_updated": "1714000000000",
+  "event_type": "query_alert_monitor",
+  "title": "[Triggered on {host:web-01}] High error rate on api-gateway",
+  "date": 1714000000000,
+  "org": {
+    "id": "12345",
+    "name": "example-org"
+  },
+  "body": "%%%\n@webhook-sureops\n\nMonitor Status: Alert\nMetric: trace.http.request.errors\nValue: 87.4 errors/s (threshold: 25)\nHost: web-01\nService: api-gateway\nEnvironment: production\n%%%",
+  "alert_id": "98765",
+  "alert_type": "error",
+  "alert_transition": "Triggered",
+  "priority": "P1",
+  "tags": "env:production,service:api-gateway,team:platform",
+  "link": "https://app.datadoghq.com/monitors/98765"
+}

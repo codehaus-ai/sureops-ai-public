@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🛡️ Security vulnerability
+    url: mailto:security@sureops.ai
+    about: Report security issues privately. Never file as a public issue — use email so we can coordinate disclosure.
+  - name: 💬 General question or how-to
+    url: https://github.com/sureops/sureops-public/discussions/categories/q-a
+    about: Use Discussions Q&A for how-to questions and beta chat. We answer within 1 business day.
+  - name: 📚 Edit docs directly on GitHub
+    url: https://github.com/sureops/sureops-public/tree/main/docs
+    about: Most docs improvements are faster as a PR than an issue. Every doc page also has an "Edit this page" link.
+  - name: 📣 Announcements & roadmap shifts
+    url: https://github.com/sureops/sureops-public/discussions/categories/announcements
+    about: Subscribe to Announcements to get release notes, beta cohort updates, and roadmap changes in your inbox.
+  - name: 📧 Private commercial inquiry
+    url: mailto:hello@sureops.ai
+    about: For pricing conversations, security questionnaires, or anything you'd rather not file publicly.

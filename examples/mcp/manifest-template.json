@@ -1,0 +1,21 @@
+{
+  "name": "my-sureops-mcp-server",
+  "version": "0.1.0",
+  "description": "Custom MCP tool server exposed to sureops agents.",
+  "tools": [
+    {
+      "name": "example_tool",
+      "description": "One-line description of what this tool does. Agents see this when deciding whether to call it.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Free-text input the agent passes to the tool."
+          }
+        },
+        "required": ["query"]
+      }
+    }
+  ]
+}

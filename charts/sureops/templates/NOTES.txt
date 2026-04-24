@@ -1,0 +1,31 @@
+sureops has been deployed.
+
+1. Get the application URL:
+{{- if .Values.ingress.enabled }}
+{{- range .Values.ingress.hosts }}
+  https://{{ .host }}
+{{- end }}
+{{- else }}
+  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "sureops.name" . }},app.kubernetes.io/component=api" -o jsonpath="{.items[0].metadata.name}")
+  kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8000:8000
+  echo "API available at http://localhost:8000"
+{{- end }}
+
+2. Check deployment status:
+  kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/instance={{ .Release.Name }}"
+
+3. IMPORTANT — Secrets:
+{{- if not .Values.secrets.externalManaged }}
+  You must create the secret before pods will start:
+    kubectl create secret generic {{ include "sureops.fullname" . }}-secret \
+      --namespace {{ .Release.Namespace }} \
+      --from-literal=db-password=YOUR_DB_PASSWORD \
+      --from-literal=anthropic-api-key=YOUR_ANTHROPIC_KEY \
+      --from-literal=encryption-master-key=YOUR_ENCRYPTION_KEY
+{{- else }}
+  Secrets are externally managed. Ensure {{ include "sureops.fullname" . }}-secret exists.
+{{- end }}
+
+4. View logs:
+  kubectl logs -f --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/component=api"
+  kubectl logs -f --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/component=agent-worker"
