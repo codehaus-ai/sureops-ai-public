@@ -2,6 +2,8 @@
 
 Self-hosted Kubernetes deployment for sureops.
 
+> **Not yet released.** This chart is under active development and is not currently published as a Helm repo. The instructions below describe the v1 install flow; until the chart ships, please don't depend on the artifacts in this directory. If you need self-hosted access ahead of v1, [get in touch](https://sureops.ai).
+
 ## Install
 
 ```bash

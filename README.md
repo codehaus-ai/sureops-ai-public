@@ -16,19 +16,14 @@ that benefits from being open:
 | Path | What it is |
 |---|---|
 | [`docs/`](./docs) | Public documentation (rendered at [sureops.ai/docs](https://sureops.ai/docs)) |
-| [`charts/sureops/`](./charts/sureops) | Helm chart for self-hosted Kubernetes deployment |
 | [`examples/`](./examples) | Example webhook payloads, MCP tool manifests |
 | [`CHANGELOG.md`](./CHANGELOG.md) | Auto-generated from [GitHub Releases](https://github.com/codehaus-ai/sureops-ai-public/releases) |
 
-## Install the Helm chart
+## Hosted vs self-hosted
 
-```bash
-helm repo add sureops https://codehaus-ai.github.io/sureops-ai-public
-helm repo update
-helm install sureops sureops/sureops --namespace sureops --create-namespace
-```
+The hosted **sureops SaaS** at sureops.ai is currently in private beta. [Request access](https://sureops.ai) to join.
 
-See [`charts/sureops/README.md`](./charts/sureops/README.md) for configuration.
+A **self-hosted Helm chart** is in development and not yet released for general use. We'll publish install instructions and a chart repo on this README when v1 ships — until then, please don't depend on the artifacts in `charts/`.
 
 ## Contributing & feedback
 
